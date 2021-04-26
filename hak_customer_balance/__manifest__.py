@@ -3,10 +3,10 @@
     'name': "Partner Balance Customer/Vendor",
 
     'summary': """
-       This module will show partner balance on Sale order and invoice""",
+       This module will show partner balance customer balance vendor balance on Sale order and invoice""",
 
     'description': """
-        This module will show partner balance on Sale order and invoice
+        This module will show partner balance customer balance vendor balance on Sale order and invoice
     """,
 
     'author': "HAK solutions",
