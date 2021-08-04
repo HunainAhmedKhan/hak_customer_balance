@@ -10,17 +10,17 @@ class SaleOrder(models.Model):
     @api.depends("partner_id")
     def default_payment_method_id(self):
         date = fields.Date.today()
-        self.due_amount = 0
         total=0
-        obj = self.env['account.move.line'].search([('partner_id', '=', self.partner_id.id),('date', '=', date)])
-        for i in obj:
-            if i.move_id.state =="posted":
-                if i.reconciled==False and i.balance !=0:
-                    if i.account_id.reconcile ==True:
-                        if i.account_id.internal_type in ['payable' ,'receivable']:
-                            print("i.partner_id.name",i.balance)
-                            total=total+i.balance
-        self.due_amount = total
+        for k in self:
+            obj = self.env['account.move.line'].search([('partner_id', '=', k.partner_id.id),('date', '=', date)])
+            for i in obj:
+                if i.move_id.state =="posted":
+                    if i.reconciled==False and i.balance !=0:
+                        if i.account_id.reconcile ==True:
+                            if i.account_id.internal_type in ['payable' ,'receivable']:
+                                print("i.partner_id.name",i.balance)
+                                total=total+i.balance
+            k.due_amount = total
 
 
 
@@ -35,17 +35,17 @@ class AccountMove(models.Model):
     @api.depends("partner_id")
     def default_payment_method_id(self):
         date = fields.Date.today()
-        self.due_amount=0
         total = 0
-        obj = self.env['account.move.line'].search([('partner_id', '=', self.partner_id.id),('date', '=', date)])
-        for i in obj:
-            if i.move_id.state =="posted":
-                if i.reconciled==False and i.balance !=0:
-                    if i.account_id.reconcile ==True:
-                        if i.account_id.internal_type in ['payable' ,'receivable']:
-                            print("i.partner_id.name",i.balance)
-                            total=total+i.balance
-        self.due_amount = total
+        for k in self:
+            obj = self.env['account.move.line'].search([('partner_id', '=', k.partner_id.id),('date', '=', date)])
+            for i in obj:
+                if i.move_id.state =="posted":
+                    if i.reconciled==False and i.balance !=0:
+                        if i.account_id.reconcile ==True:
+                            if i.account_id.internal_type in ['payable' ,'receivable']:
+                                print("i.partner_id.name",i.balance)
+                                total=total+i.balance
+            k.due_amount = total
 
 
 
@@ -59,14 +59,14 @@ class PurchaseOrder(models.Model):
     @api.depends("partner_id")
     def default_payment_method_id(self):
         date = fields.Date.today()
-        self.due_amount=0
         total = 0
-        obj = self.env['account.move.line'].search([('partner_id', '=', self.partner_id.id),('date', '=', date)])
-        for i in obj:
-            if i.move_id.state =="posted":
-                if i.reconciled==False and i.balance !=0:
-                    if i.account_id.reconcile ==True:
-                        if i.account_id.internal_type in ['payable' ,'receivable']:
-                            print("i.partner_id.name",i.balance)
-                            total=total+i.balance
-        self.due_amount = total
+        for k in self:
+            obj = self.env['account.move.line'].search([('partner_id', '=', k.partner_id.id),('date', '=', date)])
+            for i in obj:
+                if i.move_id.state =="posted":
+                    if i.reconciled==False and i.balance !=0:
+                        if i.account_id.reconcile ==True:
+                            if i.account_id.internal_type in ['payable' ,'receivable']:
+                                print("i.partner_id.name",i.balance)
+                                total=total+i.balance
+            k.due_amount = total
