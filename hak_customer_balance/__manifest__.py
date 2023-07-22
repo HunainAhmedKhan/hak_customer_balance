@@ -9,7 +9,7 @@
         This module will show partner balance on Sale order and invoice
     """,
 
-    'author': "HAK solutions",
+    'author': "HAK Technologies",
     'category': 'Base',
     'website': 'https://www.HAKsolutions.com/',
     'license': 'AGPL-3',
