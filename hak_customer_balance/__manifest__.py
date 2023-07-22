@@ -9,7 +9,7 @@
         This module will show partner balance customer balance vendor balance on Sale order and invoice
     """,
 
-     'author': "HAK Tehnologies",
+    'author': "HAK Technologies",
     'category': 'Base',
     'website': 'https://www.HAKsolutions.com/',
     'license': 'AGPL-3',
